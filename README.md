@@ -3,6 +3,37 @@ Source: [Learning Angular](https://www.youtube.com/playlist?list=PL1w1q3fL4pmj9k
 
 Date Completed: 09/15/26
 
+# Setup
+
+## Running the website
+
+- Clone repo to local machine
+
+  `git clone https://github.com/adjoth/Angular-Home-App.git`
+
+- Once the code has been downloaded
+
+  `cd Angular-Home-App`
+
+- Install depencies
+
+  `npm install`
+
+
+- Run the application 
+
+  `ng serve`
+
+## Run the backend
+
+- Install json-server
+
+  `npm install -g json-server`
+
+- Run the json-server
+
+  `json-server --watch db.json`
+
 # Angular Homes App
 - Install Angular if you don't have it installed
 

@@ -10,7 +10,7 @@ import { HousingService } from '../housing.service';
   imports: [CommonModule, HousingLocationComponent],
   template: `
     <section>
-      <form>
+      <form (submit)="filterResults(filter.value); $event.preventDefault()">
         <input type="text" placeholder="Filter by City" #filter/>
         <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
       </form>
@@ -37,8 +37,11 @@ export class HomeComponent {
   }
 
   filterResults(text: string) {
-
-    if (!text) this.filteredLocationList = this.housingLocationList;
+    // If no text provided, reset filtered list and stop — avoids calling toLowerCase on undefined/empty
+    if (!text) {
+      this.filteredLocationList = this.housingLocationList;
+      return;
+    }
 
     this.filteredLocationList = this.housingLocationList.filter(
       housingLocation => housingLocation?.city.toLowerCase().includes(text.toLowerCase())
